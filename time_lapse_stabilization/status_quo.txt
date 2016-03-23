@@ -1,0 +1,31 @@
+#1: Scripts reads list of tiff-files, affine-registers 2 neighbouring slices back-to-back and saves the newly registered slices as separate file in a sub-folder (called /REGISTERED; needs to be renamed manually if the code is re-run). This is done using AffineImageReconstruction2Series.
+ -> OPTIONALLY: the series of registered slices can be exported as .mha with defined voxel-resolution subsequntly to registration ((done using AffineImageReconstruction2Series+Export)
+ 
+slices_filename_base_pattern firstSliceNumber LastSliceNumber
+
+slices_filename_base_pattern with "6w_DAPI_GFP_aligned%04d.tif"
+
+USAGE OF EXPORT OPTION (set x,y,z spacing and output name):   slices_filename_base_pattern firstSliceNumber LastSliceNumber spacingX spacingY spacingZ outputImageFile
+
+The final codes (AffineImageReconstruction2Series+(Export)) were established as a merge from a Git-code by Luis Ibanez (https://github.com/luisibanez/ImageReconstruction/tree/master/Source/SliceStacking) 
+and 2 different ITK-examples (namely SimpleImageReconstruction AND ???
+
+
+
+
+
+ip-linux@iplinux-desktop:~/Documents/Registration/Work-in-progress/Slice_To_Volume/Data/Mic-to-Mic$ gnuplot
+
+        G N U P L O T
+        Version 4.6 patchlevel 4    last modified 2013-10-02 
+        Build System: Linux x86_64
+
+        Copyright (C) 1986-1993, 1998, 2004, 2007-2013
+        Thomas Williams, Colin Kelley and many others
+
+        gnuplot home:     http://www.gnuplot.info
+        faq, bugs, etc:   type "help FAQ"
+        immediate help:   type "help"  (plot window: hit 'h')
+
+Terminal type set to 'wxt'
+gnuplot> plot "new_pipe2.txt" u 1:2 w l
